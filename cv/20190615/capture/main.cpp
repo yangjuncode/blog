@@ -14,11 +14,15 @@ int main(int argc, const char *argv[]) {
     Mat frame;
     capture >> frame;
 
-    cout << "img size row:col:" << frame.rows<<":"<<frame.cols<<endl;
+    cout << "img size row:col:" << frame.rows << ":" << frame.cols << endl;
     while (true) {
 
         // 每一帧
         capture >> frame;
+        if (frame.empty()) {
+            cout << "capture err,exit" << endl;
+            return -1;
+        }
         imshow("capture", frame);
 
         // 转为灰度图
