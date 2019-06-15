@@ -12,6 +12,9 @@ Mat edges;
 
 int main(int argc, const char *argv[]) {
     Mat frame;
+    capture >> frame;
+
+    cout << "img size row:col:" << frame.rows<<":"<<frame.cols<<endl;
     while (true) {
 
         // 每一帧
