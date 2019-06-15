@@ -9,4 +9,8 @@
 > 直接pacman -S opencv , 目前的版本是4.1.0
 >
 > 因为用cmake,ide用vscode和clion,或者qtcreator都可以,我电脑上都有现成的
+>
+> windows上使用msys2安装也挺方便,也是4.1.0版本
+>
+> pacman -S mingw-w64-x86_64-eigen3  mingw-w64-x86_64-opencv
 
