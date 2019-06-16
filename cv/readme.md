@@ -14,3 +14,9 @@
 >
 > pacman -S mingw-w64-x86_64-eigen3  mingw-w64-x86_64-opencv
 
+- 2019-06-16
+
+> 基本的图像输入输出 imread,imshow, imwrite, mouse event, get set mat pixel
+>
+> 
+
