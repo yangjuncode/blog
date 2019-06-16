@@ -57,7 +57,7 @@ int main(int argc, const char *argv[]) {
 
 
 
-    // 等待用户输入,有输入则退出程序
+    // 等待用户输入,有输入则保存成test.png然后退出程序
     if (waitKey(30000) >= 0) {
         imwrite("test.png", img);
         return 0;
