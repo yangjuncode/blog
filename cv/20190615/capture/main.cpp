@@ -11,20 +11,35 @@ VideoCapture capture(0);
 Mat edges;
 
 int main(int argc, const char *argv[]) {
-  while (true) {
     Mat frame;
-    // 每一帧
     capture >> frame;
-    // 转为灰度图
-    cvtColor(frame, edges, COLOR_BGR2GRAY);
-    blur(edges, edges, Size(7, 7));
-    Canny(edges, edges, 0, 30, 3);
-    // 边缘检测并显示边缘
-    imshow("Read Video", edges);
 
-    // 等待用户输入
-    if (waitKey(50) >= 0)
-      break;
-  }
-  return 0;
+    cout << "img size row:col:" << frame.rows << ":" << frame.cols << endl;
+    while (true) {
+
+        // 每一帧
+        capture >> frame;
+        if (frame.empty()) {
+            cout << "capture err,exit" << endl;
+            return -1;
+        }
+        imshow("capture", frame);
+
+        // 转为灰度图
+        cvtColor(frame, edges, COLOR_BGR2GRAY);
+        imshow("gray", edges);
+
+        blur(edges, edges, Size(5, 5));
+        imshow("blur", edges);
+
+        // 边缘检测并显示边缘
+        Canny(edges, edges, 0, 30, 3);
+        imshow("Read Video", edges);
+
+        // 等待用户输入,有输入则退出程序
+        if (waitKey(100) >= 0) {
+            break;
+        }
+    }
+    return 0;
 }
